@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+  labels:
+    name: app
+    type: netapi
+spec:
+  containers:
+  - name: app-api
+    image: cesartorres227/net-sql:v1.0
+    ports:
+      - containerPort: 5000
+    env:
+      - name: ConnectionStrings__SQLServerConnection
+        value: Data Source=mssql-service;Initial Catalog=InmuebleDB;User ID=sa;Password=CesarTorres2023$;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
